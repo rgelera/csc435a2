@@ -1,8 +1,8 @@
 // GooMain.java
 //
 // TEAM MEMBERS:
-//     * PUT FIRST TEAM MEMBER NAME HERE
-//     * PUT SECOND TEAM MEMBER NAME HERE
+//     * Rodney Gelera
+//     * Dustin Chang
 //
 // Main program which invokes the various compiler phases:
 // lexer/parser, symbol table construction, type checking ...
@@ -85,6 +85,7 @@ public class GooMain {
 		// Traverse the parse tree, building the symbol table
         SymTabVisitor1 bg = new SymTabVisitor1(traceSymTab,dumpSymTab,dumpPredefineds);
         bg.visit(tree);
+				System.out.println("here3");
 
 		// The next phase will be type checking and most semantic checking
 		// of function bodies

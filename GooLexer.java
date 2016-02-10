@@ -19,53 +19,53 @@ public class GooLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
-		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, BREAK=30, CASE=31, CHAN=32, 
-		CONST=33, CONTINUE=34, DEFAULT=35, DEFER=36, ELSE=37, FALLTHROUGH=38, 
-		FOR=39, FUNC=40, GO=41, GOTO=42, IF=43, IMPORT=44, INTERFACE=45, MAP=46, 
-		PACKAGE=47, RANGE=48, RETURN=49, SELECT=50, STRUCT=51, SWITCH=52, TYPE=53, 
-		VAR=54, Identifier=55, ImaginaryLit=56, IntLit=57, FloatLit=58, StringLit=59, 
-		RuneLit=60, PLUSPLUS=61, MINUSMINUS=62, RPAREN=63, RSQ=64, RBRACE=65, 
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9,
+		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17,
+		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24,
+		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, BREAK=30, CASE=31, CHAN=32,
+		CONST=33, CONTINUE=34, DEFAULT=35, DEFER=36, ELSE=37, FALLTHROUGH=38,
+		FOR=39, FUNC=40, GO=41, GOTO=42, IF=43, IMPORT=44, INTERFACE=45, MAP=46,
+		PACKAGE=47, RANGE=48, RETURN=49, SELECT=50, STRUCT=51, SWITCH=52, TYPE=53,
+		VAR=54, Identifier=55, ImaginaryLit=56, IntLit=57, FloatLit=58, StringLit=59,
+		RuneLit=60, PLUSPLUS=61, MINUSMINUS=62, RPAREN=63, RSQ=64, RBRACE=65,
 		SEMI=66, Whitespace=67, LineComment=68, NL=69, BlockComment=70, BlockNLComment=71;
 	public static String[] modeNames = {
 		"DEFAULT_MODE"
 	};
 
 	public static final String[] ruleNames = {
-		"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8", 
-		"T__9", "T__10", "T__11", "T__12", "T__13", "T__14", "T__15", "T__16", 
-		"T__17", "T__18", "T__19", "T__20", "T__21", "T__22", "T__23", "T__24", 
-		"T__25", "T__26", "T__27", "T__28", "BREAK", "CASE", "CHAN", "CONST", 
-		"CONTINUE", "DEFAULT", "DEFER", "ELSE", "FALLTHROUGH", "FOR", "FUNC", 
-		"GO", "GOTO", "IF", "IMPORT", "INTERFACE", "MAP", "PACKAGE", "RANGE", 
-		"RETURN", "SELECT", "STRUCT", "SWITCH", "TYPE", "VAR", "Identifier", "ImaginaryLit", 
-		"IntLit", "FloatLit", "Digit", "FloatLitTail", "Exponent", "Letter", "LetterOrDigit", 
-		"StringLit", "RuneLit", "PLUSPLUS", "MINUSMINUS", "RPAREN", "RSQ", "RBRACE", 
-		"SEMI", "SChar", "CChar", "Whitespace", "LineComment", "NL", "BlockComment", 
+		"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8",
+		"T__9", "T__10", "T__11", "T__12", "T__13", "T__14", "T__15", "T__16",
+		"T__17", "T__18", "T__19", "T__20", "T__21", "T__22", "T__23", "T__24",
+		"T__25", "T__26", "T__27", "T__28", "BREAK", "CASE", "CHAN", "CONST",
+		"CONTINUE", "DEFAULT", "DEFER", "ELSE", "FALLTHROUGH", "FOR", "FUNC",
+		"GO", "GOTO", "IF", "IMPORT", "INTERFACE", "MAP", "PACKAGE", "RANGE",
+		"RETURN", "SELECT", "STRUCT", "SWITCH", "TYPE", "VAR", "Identifier", "ImaginaryLit",
+		"IntLit", "FloatLit", "Digit", "FloatLitTail", "Exponent", "Letter", "LetterOrDigit",
+		"StringLit", "RuneLit", "PLUSPLUS", "MINUSMINUS", "RPAREN", "RSQ", "RBRACE",
+		"SEMI", "SChar", "CChar", "Whitespace", "LineComment", "NL", "BlockComment",
 		"BlockNLComment"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'('", "'['", "'{'", "'*'", "','", "'='", "':='", "'.'", "'...'", 
-		"':'", "'&&'", "'||'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", "'+'", 
-		"'-'", "'|'", "'^'", "'/'", "'%'", "'<<'", "'>>'", "'&'", "'&^'", "'!'", 
-		"'break'", "'case'", "'chan'", "'const'", "'continue'", "'default'", "'defer'", 
-		"'else'", "'fallthrough'", "'for'", "'func'", "'go'", "'goto'", "'if'", 
-		"'import'", "'interface'", "'map'", "'package'", "'range'", "'return'", 
-		"'select'", "'struct'", "'switch'", "'type'", "'var'", null, null, null, 
+		null, "'('", "'['", "'{'", "'*'", "','", "'='", "':='", "'.'", "'...'",
+		"':'", "'&&'", "'||'", "'=='", "'!='", "'<'", "'<='", "'>'", "'>='", "'+'",
+		"'-'", "'|'", "'^'", "'/'", "'%'", "'<<'", "'>>'", "'&'", "'&^'", "'!'",
+		"'break'", "'case'", "'chan'", "'const'", "'continue'", "'default'", "'defer'",
+		"'else'", "'fallthrough'", "'for'", "'func'", "'go'", "'goto'", "'if'",
+		"'import'", "'interface'", "'map'", "'package'", "'range'", "'return'",
+		"'select'", "'struct'", "'switch'", "'type'", "'var'", null, null, null,
 		null, null, null, "'++'", "'--'", "')'", "']'", "'}'", "';'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, "BREAK", "CASE", "CHAN", "CONST", 
-		"CONTINUE", "DEFAULT", "DEFER", "ELSE", "FALLTHROUGH", "FOR", "FUNC", 
-		"GO", "GOTO", "IF", "IMPORT", "INTERFACE", "MAP", "PACKAGE", "RANGE", 
-		"RETURN", "SELECT", "STRUCT", "SWITCH", "TYPE", "VAR", "Identifier", "ImaginaryLit", 
-		"IntLit", "FloatLit", "StringLit", "RuneLit", "PLUSPLUS", "MINUSMINUS", 
-		"RPAREN", "RSQ", "RBRACE", "SEMI", "Whitespace", "LineComment", "NL", 
+		null, null, null, null, null, null, null, null, null, null, null, null,
+		null, null, null, null, null, null, null, null, null, null, null, null,
+		null, null, null, null, null, null, "BREAK", "CASE", "CHAN", "CONST",
+		"CONTINUE", "DEFAULT", "DEFER", "ELSE", "FALLTHROUGH", "FOR", "FUNC",
+		"GO", "GOTO", "IF", "IMPORT", "INTERFACE", "MAP", "PACKAGE", "RANGE",
+		"RETURN", "SELECT", "STRUCT", "SWITCH", "TYPE", "VAR", "Identifier", "ImaginaryLit",
+		"IntLit", "FloatLit", "StringLit", "RuneLit", "PLUSPLUS", "MINUSMINUS",
+		"RPAREN", "RSQ", "RBRACE", "SEMI", "Whitespace", "LineComment", "NL",
 		"BlockComment", "BlockNLComment"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
