@@ -73,6 +73,7 @@ public class GooMain {
         ParseTree tree = parser.sourceFile();	// sourceFile is start symbol
 
         if (printTree) {
+					System.out.println("here_if_printTree");
         	System.out.println(tree.toStringTree(parser));
         	System.out.println();
         }
@@ -83,8 +84,13 @@ public class GooMain {
 		}
 
 		// Traverse the parse tree, building the symbol table
+				System.out.println("here1");
+				System.out.println(tree);
         SymTabVisitor1 bg = new SymTabVisitor1(traceSymTab,dumpSymTab,dumpPredefineds);
+				System.out.println("here_bg");
         bg.visit(tree);
+				System.out.println("here2");
+				System.out.println(bg);
 				System.out.println("here3");
 
 		// The next phase will be type checking and most semantic checking

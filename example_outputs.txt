@@ -1,0 +1,20 @@
+❯ java GooMain -dsym ../GooProgs/fig_ex2.go
+package level names {
+   0: TypeName Books:struct{ [Field title:string, Field author:string, Field subject:string, Field book_id:int] }
+   0: Function main()
+}
+
+❯ java GooMain -dsym ../GooProgs/fig_ex3.go
+package level names {
+   0: TypeName BookInfo:struct{ [Field subject:string, Field book_id:int] }
+   0: TypeName Books:struct{ [Field title:string, Field author:string, Field info:struct{ [Field subject:string, Field book_id:int] }] }
+   0: Function main()
+}
+
+❯ java GooMain -dsym ../GooProgs/fig_ex4.go
+line 3:54 BookInfo is not a type
+package level names {
+   0: TypeName Books:struct{ [Field title:string, Field author:string, Field info:???] }
+   0: TypeName BookInfo:struct{ [Field subject:string, Field book_id:int] }
+   0: Function main()
+}
