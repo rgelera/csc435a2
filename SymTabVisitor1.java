@@ -57,7 +57,35 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	public Type visitTopLevelDeclList(GooParser.TopLevelDeclListContext ctx) {
 		//Need to figure out what to put here I believe
 		System.out.println("here_TopLevel");
+		return visitChildren(ctx);
+	}
 
+//Create trace down visits from TopLevelDeclList
+//Need to add vars, consts, and types to symbol table
+//Seems Type is already working
+/*		@Override
+	public Type visitTypeDecl(GooParser.TypeDeclContext ctx) {
+		System.out.println("in_TypeDecl1");
+		//String typeSpec = ctx.typeSpec().getText();
+		//System.out.println(typeSpec);
+		System.out.println("here100");
+		//Symbol type = new Symbol(typeSpec)
+		return visitChildren(ctx);
+	}*/
+
+		@Override
+	public Type visitVarDecl(GooParser.VarDeclContext ctx) {
+		System.out.println("in_VarDecl");
+
+		return visitChildren(ctx);
+	}
+
+		@Override
+	public Type visitIdentifierList(GooParser.IdentifierListContext ctx) {
+		System.out.println("in_IdentifierList");
+		String name = ctx.Identifier(0).getText(); //Gets x
+		System.out.println(name);
+		System.out.println("here200");
 		return visitChildren(ctx);
 	}
 
@@ -68,8 +96,8 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 		globals.setScopeName("predefined names");
 		Predefined.AddPredefinedNames(globals);
 		currentScope = new BlockScope(globals);
-		currentScope.setScopeName("package level names");
-        visitChildren(ctx);
+		currentScope.setScopeName("package level names");//HERE
+        visitChildren(ctx);	//Build in function that visits left to right
 				System.out.println("here14");
 		if (dumpSymTab)
 			currentScope.dumpScope();	//Dumps the package level names output
@@ -81,9 +109,14 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitFunctionDecl(GooParser.FunctionDeclContext ctx) {
-		System.out.println("here5");
+		System.out.println("in_FunctionDecl");
 		String funcName = ctx.functionName().getText();
+		System.out.println(funcName);
 		FunctionSymbol function = new FunctionSymbol(funcName, currentScope);
+		System.out.println(funcName);
+		System.out.println(currentScope);
+		//System.out.println(function.toString());
+		System.out.println("here5_AFTER");
 		currentScope.define(function);	// add function defn to current scope
 		currentScope = function;		// enter this new scope
 		saveScope(ctx, currentScope);	// remember scope for this parse tree node
@@ -101,7 +134,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
     public Type visitFunction(GooParser.FunctionContext ctx) {
-				System.out.println("here6");
+				System.out.println("in_Function");
         return visit(ctx.signature());
     }
 
@@ -121,7 +154,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitSignature(GooParser.SignatureContext ctx) {
-		System.out.println("here8");
+		System.out.println("here8Sig");
         Type rt = null;
 		// currentSignatureParams should contain all the input parameters
 		// Just have to grab the result type, if there is one
@@ -143,7 +176,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 			return Type.unknownType;
 		}
 		return sy.getType();
-    }
+	}
 
     @Override
 	public Type visitStructType(GooParser.StructTypeContext ctx) {
