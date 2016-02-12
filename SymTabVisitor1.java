@@ -17,7 +17,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	LinkedList<Type> currentSignatureResult = new LinkedList<Type>();
 	boolean dumpSymTab = false;
 	boolean dumpPredefineds = false;
-	
+
 	// constructor
 	//  t is the -dtsy command line flag
 	//  d is the -dsym command line flag
@@ -46,7 +46,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	public ParseTreeProperty<Scope> getScopes() {
 		return scopes;
 	}
-	
+
 
 	// *********** Visit methods follow *******************
 
