@@ -156,7 +156,9 @@ public class GooBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Go
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDeclaration(GooParser.DeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDeclaration(GooParser.DeclarationContext ctx) {
+		System.out.println("in_Declaration");
+		return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -170,7 +172,8 @@ public class GooBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Go
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTopLevelDecl(GooParser.TopLevelDeclContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTopLevelDecl(GooParser.TopLevelDeclContext ctx) { System.out.println("In_visitTopLevelDecl");
+		return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -219,21 +222,25 @@ public class GooBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Go
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeDecl(GooParser.TypeDeclContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeDecl(GooParser.TypeDeclContext ctx) {	return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeSpecList(GooParser.TypeSpecListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeSpecList(GooParser.TypeSpecListContext ctx) {
+		System.out.println("in_TypeSpecList");
+		return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeSpec(GooParser.TypeSpecContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeSpec(GooParser.TypeSpecContext ctx) {
+		System.out.println("in_TypeSpec");
+		return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -282,7 +289,9 @@ public class GooBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Go
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFunctionName(GooParser.FunctionNameContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFunctionName(GooParser.FunctionNameContext ctx) {
+		System.out.println("in_FunctionName");
+		return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -112,12 +112,13 @@ declaration
         |   typeDecl
         |   varDecl
         ;
-
+//topLevelDeclList is fine supposedly
+//Anything that is top level: var, func, structs
 topLevelDeclList    // CHANGED
         :    /* empty */
 	|    (topLevelDecl ';')* topLevelDecl optSemi
         ;
-
+//Trace through
 topLevelDecl
         :   declaration
         |   functionDecl
@@ -132,7 +133,7 @@ constSpecList   // CHANGED
         :   /* empty */
 	|   (constSpec ';')* constSpec optSemi
         ;
-
+//constSpec needs most of the work
 constSpec
         :   identifierList constSpecRem?     // CHANGED
         ;
