@@ -1,4 +1,4 @@
-// Generated from Goo.g4 by ANTLR 4.5.1
+// Generated from Goo.g4 by ANTLR 4.5.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class GooParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.5.1", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.5.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -276,6 +276,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 4, RULE_typeLit);
 		try {
 			setState(210);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -735,6 +736,7 @@ public class GooParser extends Parser {
 			setState(252);
 			parameters();
 			setState(254);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				{
@@ -932,6 +934,7 @@ public class GooParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(276);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
 				{
@@ -1056,6 +1059,7 @@ public class GooParser extends Parser {
 		try {
 			int _alt;
 			setState(298);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,10,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -1322,6 +1326,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 46, RULE_constDecl);
 		try {
 			setState(330);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -1460,6 +1465,7 @@ public class GooParser extends Parser {
 			setState(346);
 			identifierList();
 			setState(348);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,18,_ctx) ) {
 			case 1:
 				{
@@ -1678,6 +1684,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 58, RULE_typeDecl);
 		try {
 			setState(379);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,22,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -1852,6 +1859,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 64, RULE_varDecl);
 		try {
 			setState(405);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,25,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2027,6 +2035,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 70, RULE_varSpecRem);
 		try {
 			setState(431);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,28,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2138,6 +2147,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 74, RULE_functionDecl);
 		try {
 			setState(445);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,29,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2311,6 +2321,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 82, RULE_operand);
 		try {
 			setState(460);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,30,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2472,6 +2483,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 88, RULE_operandName);
 		try {
 			setState(470);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,32,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2614,6 +2626,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 94, RULE_literalType);
 		try {
 			setState(487);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,33,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2690,6 +2703,7 @@ public class GooParser extends Parser {
 		int _la;
 		try {
 			setState(498);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,35,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2814,6 +2828,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 100, RULE_element);
 		try {
 			setState(513);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,37,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -2872,6 +2887,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 102, RULE_key);
 		try {
 			setState(518);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,38,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -3059,6 +3075,7 @@ public class GooParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(529);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,40,_ctx) ) {
 			case 1:
 				{
@@ -3083,6 +3100,7 @@ public class GooParser extends Parser {
 					_prevctx = _localctx;
 					{
 					setState(541);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,41,_ctx) ) {
 					case 1:
 						{
@@ -3254,6 +3272,7 @@ public class GooParser extends Parser {
 		int _la;
 		try {
 			setState(572);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,46,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -3389,6 +3408,7 @@ public class GooParser extends Parser {
 		int _la;
 		try {
 			setState(604);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,50,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -3535,6 +3555,7 @@ public class GooParser extends Parser {
 					_prevctx = _localctx;
 					{
 					setState(627);
+					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,51,_ctx) ) {
 					case 1:
 						{
@@ -3642,6 +3663,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 122, RULE_unaryExpr);
 		try {
 			setState(636);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,53,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -3933,6 +3955,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 134, RULE_statement);
 		try {
 			setState(665);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,55,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4056,6 +4079,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 136, RULE_simpleStmt);
 		try {
 			setState(672);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,56,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4269,6 +4293,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 146, RULE_incDecStmt);
 		try {
 			setState(690);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,57,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4450,6 +4475,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 152, RULE_ifStmt);
 		try {
 			setState(717);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,59,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4518,6 +4544,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 154, RULE_elsePart);
 		try {
 			setState(724);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,60,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4585,6 +4612,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 156, RULE_forStmt);
 		try {
 			setState(738);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,61,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4825,6 +4853,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 166, RULE_rangeClause);
 		try {
 			setState(764);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,63,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4925,6 +4954,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 170, RULE_returnStmt);
 		try {
 			setState(772);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,64,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -4976,6 +5006,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 172, RULE_breakStmt);
 		try {
 			setState(777);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,65,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -5027,6 +5058,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 174, RULE_continueStmt);
 		try {
 			setState(782);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,66,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -5295,6 +5327,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 186, RULE_importDecl);
 		try {
 			setState(812);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,68,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
@@ -5523,6 +5556,7 @@ public class GooParser extends Parser {
 		enterRule(_localctx, 194, RULE_optSemi);
 		try {
 			setState(840);
+			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,72,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);

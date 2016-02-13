@@ -39,7 +39,7 @@ public class BlockScope implements Scope {
 	public String toString() {
 	    return "{ "+symbols.keySet().toString()+" }";
 	}
-	
+
 	public void dumpScope() {
 		Collection<Symbol> items = symbols.values();
 		if (items.size() != 0) {
