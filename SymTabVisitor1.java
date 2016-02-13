@@ -191,15 +191,26 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	@Override
 	public Type visitConstSpec(GooParser.ConstSpecContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
-		Type typ = visit(ctx.constSpecRem().type()); // For now, assuming only one type
-
-		if (ids != null) {
-			for ( Token t : ids ) {
-				String id = t.getText();
-				Symbol sy = new Symbol(id, Symbol.Kind.Constant, typ, currentScope, processLineNumber(ctx));
-				currentScope.define(sy);
+		//Case for if there is no type
+		if(ctx.constSpecRem().type() == null) {
+			if (ids != null) {
+				for ( Token t : ids ) {
+					String id = t.getText();
+					Symbol sy = new Symbol(id, currentScope, processLineNumber(ctx));
+					currentScope.define(sy);
+				}
 			}
+			return Type.unknownType;
+		} else { //Case for when a type is given
+			Type typ = visit(ctx.constSpecRem().type());
+			if (ids != null) {
+				for ( Token t : ids ) {
+					String id = t.getText();
+					Symbol sy = new Symbol(id, Symbol.Kind.Constant, typ, currentScope, processLineNumber(ctx));
+					currentScope.define(sy);
+				}
+			}
+			return typ;
 		}
-		return typ;
 	}
 }

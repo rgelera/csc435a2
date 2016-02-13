@@ -19,6 +19,15 @@ public class Symbol { // A generic programming language symbol
         scope = null;
     }
 
+    //For constSpec if type is null (no type)
+    public Symbol(String name, Scope scope, int lineNumber) {
+      this.name = name;
+      kind = Kind.Unknown;
+      type = Type.unknownType;
+      this.scope = scope;
+      this.lineNumber = lineNumber;
+    }
+
     public Symbol(String name, Kind kind, Type type, Scope scope, int lineNumber) {
         this.name = name;
         this.kind = kind;
