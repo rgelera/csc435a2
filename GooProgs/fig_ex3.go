@@ -1,5 +1,13 @@
 package main
 
+//additions
+type x_slice []int64
+
+func add(x, y int) int {
+	return x + y
+}
+//End of additions
+
 type BookInfo struct { subject string; book_id int }
 
 type Books struct { title string; author string; info BookInfo }
