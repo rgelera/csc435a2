@@ -58,42 +58,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	// SOME VISIT METHODS ARE PROVIDED
 	// SEVERAL MORE VISIT METHODS NEED TO BE ADDED
 
-		@Override
-	public Type visitTopLevelDeclList(GooParser.TopLevelDeclListContext ctx) {
-		//Need to figure out what to put here I believe
-		System.out.println("here_TopLevel");
-		return visitChildren(ctx);
-	}
-
-//Create trace down visits from TopLevelDeclList
-//Need to add vars, consts, and types to symbol table
-//Seems Type is already working
-/*		@Override
-	public Type visitTypeDecl(GooParser.TypeDeclContext ctx) {
-		System.out.println("in_TypeDecl1");
-		//String typeSpec = ctx.typeSpec().getText();
-		//System.out.println(typeSpec);
-		System.out.println("here100");
-		//Symbol type = new Symbol(typeSpec)
-		return visitChildren(ctx);
-	}*/
-
-		@Override
-	public Type visitVarDecl(GooParser.VarDeclContext ctx) {
-		System.out.println("in_VarDecl");
-
-		return visitChildren(ctx);
-	}
-
-		@Override
-	public Type visitIdentifierList(GooParser.IdentifierListContext ctx) {
-		System.out.println("in_IdentifierList");
-		String name = ctx.Identifier(0).getText(); //Gets x
-		System.out.println(name);
-		System.out.println("here200");
-		return visitChildren(ctx);
-	}
-
     @Override
 	public Type visitSourceFile(GooParser.SourceFileContext ctx) {
 		System.out.println("here4");
