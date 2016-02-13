@@ -55,14 +55,12 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitSourceFile(GooParser.SourceFileContext ctx) {
-		System.out.println("here4");
 		globals = new BlockScope(null);
 		globals.setScopeName("predefined names");
 		Predefined.AddPredefinedNames(globals);
 		currentScope = new BlockScope(globals);
 		currentScope.setScopeName("package level names");//HERE
         visitChildren(ctx);	//Build in function that visits left to right
-				System.out.println("here14");
 		if (dumpSymTab)
 			currentScope.dumpScope();	//Dumps the package level names output
 		currentScope = currentScope.getEnclosingScope();
@@ -73,14 +71,8 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitFunctionDecl(GooParser.FunctionDeclContext ctx) {
-		System.out.println("in_FunctionDecl");
 		String funcName = ctx.functionName().getText();
-		System.out.println(funcName);
 		FunctionSymbol function = new FunctionSymbol(funcName, currentScope);
-		System.out.println(funcName);
-		System.out.println(currentScope);
-		//System.out.println(function.toString());
-		System.out.println("here5_AFTER");
 		currentScope.define(function);	// add function defn to current scope
 		currentScope = function;		// enter this new scope
 		saveScope(ctx, currentScope);	// remember scope for this parse tree node
@@ -98,13 +90,11 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
     public Type visitFunction(GooParser.FunctionContext ctx) {
-				System.out.println("in_Function");
         return visit(ctx.signature());
     }
 
     @Override
 	public Type visitParameterDecl(GooParser.ParameterDeclContext ctx) {
-		System.out.println("here7");
         visitChildren(ctx);
 		List<Token> ids = ctx.identifierList().idl;
 		Type typ = visit(ctx.type());
@@ -118,7 +108,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitSignature(GooParser.SignatureContext ctx) {
-		System.out.println("here8Sig");
         Type rt = null;
 		// currentSignatureParams should contain all the input parameters
 		// Just have to grab the result type, if there is one
@@ -132,7 +121,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
     public Type visitTypeName(GooParser.TypeNameContext ctx) {
-			System.out.println("here9");
 		String name = ctx.getText();
 		Symbol sy = currentScope.resolve(name);
 		if (sy == null || sy.getKind() != Symbol.Kind.TypeName) {
@@ -144,7 +132,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitStructType(GooParser.StructTypeContext ctx) {
-		System.out.println("here10");
 	    Type t = Type.newStructType(currentScope);
 		currentScope = (Scope)t;
 	    visitChildren(ctx);
@@ -154,7 +141,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitFieldDecl(GooParser.FieldDeclContext ctx) {
-		System.out.println("here11");
 		List<Token> ids = ctx.identifierList().idl;
 		Type typ = visit(ctx.type());
 		if (ids != null) {
@@ -169,14 +155,12 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 
     @Override
 	public Type visitArrayType(GooParser.ArrayTypeContext ctx) {
-		System.out.println("here12");
 		Type t = visit(ctx.elementType());
 		return Type.newArrayType(t);
 	}
 
     @Override
 	public Type visitTypeSpec(GooParser.TypeSpecContext ctx) {
-		System.out.println("here13");
 		String name = ctx.Identifier().getText();
 		Type t = visit(ctx.type());
 		Symbol sy = new Symbol(name, Symbol.Kind.TypeName, t, currentScope);
