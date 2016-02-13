@@ -1,0 +1,17 @@
+TODO's
+#9
+line 6:2 token recognition error at: 'é'
+line 6:3 no viable alternative at input 'funcmain(){rsum'
+line 6:6 token recognition error at: 'é'
+#18
+Error with vars, I need to fix
+#26
+Error with vars
+#28
+line 5:30 no viable alternative at input 'funcswap(x,ystring)(string,'
+#29
+line 5:22 no viable alternative at input 'funcsplit(sumint)(x,'
+#49
+line 5:30 no viable alternative at input 'funcswap(x,ystring)(string,'
+#77
+line 7:32 no viable alternative at input 'funcSqrt(valuefloat64)(float64,'
