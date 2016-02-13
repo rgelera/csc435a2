@@ -14,7 +14,7 @@ public interface Scope {
 
     /** Look up name in this scope or in enclosing scope if not here */
     public Symbol resolve(String name);
-    
+
     /** Display the variables and types of all names in the scope */
     public void dumpScope();
 }
