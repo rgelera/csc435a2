@@ -178,7 +178,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	public Type visitVarSpec(GooParser.VarSpecContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
 		Type typ = visit(ctx.varSpecRem().type()); // For now, assuming only one type
-
 		if (ids != null) {
 			for ( Token t : ids ) {
 				String id = t.getText();
@@ -187,7 +186,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 			}
 		}
 		return typ;
-
 	}
 
 	@Override
@@ -203,7 +201,5 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 			}
 		}
 		return typ;
-
 	}
-
 }
