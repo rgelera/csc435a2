@@ -47,6 +47,12 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 		return scopes;
 	}
 
+	public int processLineNumber(ParserRuleContext ctx) {
+		CommonToken pos = (CommonToken)(ctx.start);
+		int line = pos.getLine();
+		return line;
+	}
+
 
 	// *********** Visit methods follow *******************
 
@@ -72,7 +78,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
     @Override
 	public Type visitFunctionDecl(GooParser.FunctionDeclContext ctx) {
 		String funcName = ctx.functionName().getText();
-		FunctionSymbol function = new FunctionSymbol(funcName, currentScope);
+		FunctionSymbol function = new FunctionSymbol(funcName, currentScope, processLineNumber(ctx));
 		currentScope.define(function);	// add function defn to current scope
 		currentScope = function;		// enter this new scope
 		saveScope(ctx, currentScope);	// remember scope for this parse tree node
@@ -143,10 +149,11 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	public Type visitFieldDecl(GooParser.FieldDeclContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
 		Type typ = visit(ctx.type());
+
 		if (ids != null) {
 		    for( Token t : ids ) {
 		        String id = t.getText();
-		        Symbol sy = new Symbol(id, Symbol.Kind.Field, typ, currentScope);
+		        Symbol sy = new Symbol(id, Symbol.Kind.Field, typ, currentScope, processLineNumber(ctx));
 		        currentScope.define(sy);
 		    }
 		}
@@ -163,9 +170,41 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	public Type visitTypeSpec(GooParser.TypeSpecContext ctx) {
 		String name = ctx.Identifier().getText();
 		Type t = visit(ctx.type());
-		Symbol sy = new Symbol(name, Symbol.Kind.TypeName, t, currentScope);
+		Symbol sy = new Symbol(name, Symbol.Kind.TypeName, t, currentScope, processLineNumber(ctx));
 		currentScope.define(sy);
 		return t;
+	}
+
+	@Override
+	public Type visitVarSpec(GooParser.VarSpecContext ctx) {
+		List<Token> ids = ctx.identifierList().idl;
+		Type typ = visit(ctx.varSpecRem().type()); // For now, assuming only one type
+
+		if (ids != null) {
+			for ( Token t : ids ) {
+				String id = t.getText();
+				Symbol sy = new Symbol(id, Symbol.Kind.Variable, typ, currentScope, processLineNumber(ctx));
+				currentScope.define(sy);
+			}
+		}
+		return typ;
+
+	}
+
+	@Override
+	public Type visitConstSpec(GooParser.ConstSpecContext ctx) {
+		List<Token> ids = ctx.identifierList().idl;
+		Type typ = visit(ctx.constSpecRem().type()); // For now, assuming only one type
+
+		if (ids != null) {
+			for ( Token t : ids ) {
+				String id = t.getText();
+				Symbol sy = new Symbol(id, Symbol.Kind.Constant, typ, currentScope, processLineNumber(ctx));
+				currentScope.define(sy);
+			}
+		}
+		return typ;
+
 	}
 
 }
