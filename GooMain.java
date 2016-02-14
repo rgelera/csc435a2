@@ -1,8 +1,8 @@
 // GooMain.java
 //
 // TEAM MEMBERS:
-//     * PUT FIRST TEAM MEMBER NAME HERE
-//     * PUT SECOND TEAM MEMBER NAME HERE
+//     * Rodney Gelera - V00782861
+//     * Dustin Chang - V00713939
 //
 // Main program which invokes the various compiler phases:
 // lexer/parser, symbol table construction, type checking ...
