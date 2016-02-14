@@ -174,18 +174,43 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 		return t;
 	}
 
+	/*@Override
+	public Type visitVarSpecList(GooParser.VarSpecListContext ctx) {
+		//List<Token> ids = ctx.varSpec().identifierList().idl;
+		System.out.println("here11");
+		//Type t = visit(ctx.varSpec().varSpecRem().type());
+		Type t = Type.newStructType(currentScope);
+		System.out.println("here12");
+		currentScope = (Scope)t;
+		System.out.println("here15");
+		visitChildren(ctx);
+		System.out.println("here13");
+		currentScope = currentScope.getEnclosingScope();
+		System.out.println("here14");
+		return Type.unknownType;
+	}*/
+
 	@Override
 	public Type visitVarSpec(GooParser.VarSpecContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
-		Type typ = visit(ctx.varSpecRem().type()); // For now, assuming only one type
+		System.out.println("here1");
+		//Type typ = visit(ctx.varSpecRem().type()); // For now, assuming only one type
+
+		System.out.println("here2");
 		if (ids != null) {
 			for ( Token t : ids ) {
+				System.out.println("here3");
+				System.out.println(ids);
+				System.out.println(t);
+				System.out.println("here4");
 				String id = t.getText();
-				Symbol sy = new Symbol(id, Symbol.Kind.Variable, typ, currentScope, processLineNumber(ctx));
+				System.out.println(id);
+				System.out.println("here6");
+				Symbol sy = new Symbol(id, Symbol.Kind.Variable, Type.unknownType, currentScope, processLineNumber(ctx));
 				currentScope.define(sy);
 			}
 		}
-		return typ;
+		return Type.unknownType;
 	}
 
 	@Override
@@ -196,7 +221,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 			if (ids != null) {
 				for ( Token t : ids ) {
 					String id = t.getText();
-					Symbol sy = new Symbol(id, currentScope, processLineNumber(ctx));
+					Symbol sy = new Symbol(id, Symbol.Kind.Constant, Type.unknownType, currentScope, processLineNumber(ctx));
 					currentScope.define(sy);
 				}
 			}
