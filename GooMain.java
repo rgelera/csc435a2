@@ -1,8 +1,8 @@
 // GooMain.java
 //
 // TEAM MEMBERS:
-//     * PUT FIRST TEAM MEMBER NAME HERE
-//     * PUT SECOND TEAM MEMBER NAME HERE
+//     * Rodney Gelera
+//     * Dustin Chang
 //
 // Main program which invokes the various compiler phases:
 // lexer/parser, symbol table construction, type checking ...
@@ -73,6 +73,7 @@ public class GooMain {
         ParseTree tree = parser.sourceFile();	// sourceFile is start symbol
 
         if (printTree) {
+					System.out.println("here_if_printTree");
         	System.out.println(tree.toStringTree(parser));
         	System.out.println();
         }

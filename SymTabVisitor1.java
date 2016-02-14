@@ -53,7 +53,6 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 		return line;
 	}
 
-
 	// *********** Visit methods follow *******************
 
 	// SOME VISIT METHODS ARE PROVIDED
@@ -65,10 +64,10 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 		globals.setScopeName("predefined names");
 		Predefined.AddPredefinedNames(globals);
 		currentScope = new BlockScope(globals);
-		currentScope.setScopeName("package level names");
-        visitChildren(ctx);
+		currentScope.setScopeName("package level names");//HERE
+        visitChildren(ctx);	//Build in function that visits left to right
 		if (dumpSymTab)
-			currentScope.dumpScope();
+			currentScope.dumpScope();	//Dumps the package level names output
 		currentScope = currentScope.getEnclosingScope();
 		if (dumpPredefineds)
 			currentScope.dumpScope();
@@ -134,7 +133,7 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 			return Type.unknownType;
 		}
 		return sy.getType();
-    }
+	}
 
     @Override
 	public Type visitStructType(GooParser.StructTypeContext ctx) {
@@ -179,32 +178,39 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	public Type visitVarSpec(GooParser.VarSpecContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
 		Type typ = visit(ctx.varSpecRem().type()); // For now, assuming only one type
-
 		if (ids != null) {
 			for ( Token t : ids ) {
 				String id = t.getText();
-				Symbol sy = new Symbol(id, Symbol.Kind.Variable, typ, currentScope, processLineNumber(ctx));
+				Symbol sy = new Symbol(id, Symbol.Kind.Variable, Type.unknownType, currentScope, processLineNumber(ctx));
 				currentScope.define(sy);
 			}
 		}
 		return typ;
-
 	}
 
 	@Override
 	public Type visitConstSpec(GooParser.ConstSpecContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
-		Type typ = visit(ctx.constSpecRem().type()); // For now, assuming only one type
-
-		if (ids != null) {
-			for ( Token t : ids ) {
-				String id = t.getText();
-				Symbol sy = new Symbol(id, Symbol.Kind.Constant, typ, currentScope, processLineNumber(ctx));
-				currentScope.define(sy);
+		//Case for if there is no type
+		if(ctx.constSpecRem().type() == null) {
+			if (ids != null) {
+				for ( Token t : ids ) {
+					String id = t.getText();
+					Symbol sy = new Symbol(id, Symbol.Kind.Constant, Type.unknownType, currentScope, processLineNumber(ctx));
+					currentScope.define(sy);
+				}
 			}
+			return Type.unknownType;
+		} else { //Case for when a type is given
+			Type typ = visit(ctx.constSpecRem().type());
+			if (ids != null) {
+				for ( Token t : ids ) {
+					String id = t.getText();
+					Symbol sy = new Symbol(id, Symbol.Kind.Constant, typ, currentScope, processLineNumber(ctx));
+					currentScope.define(sy);
+				}
+			}
+			return typ;
 		}
-		return typ;
-
 	}
-
 }
