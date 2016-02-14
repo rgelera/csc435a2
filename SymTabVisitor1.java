@@ -178,23 +178,49 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 	@Override
 	public Type visitVarSpec(GooParser.VarSpecContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
-		Type typ = visit(ctx.varSpecRem().type()); // For now, assuming only one type
+		Type typ = null;
+		if (ctx.varSpecRem().type() != null) {
+			typ = visit(ctx.varSpecRem().type()); // For now, assuming only one type
 
-		if (ids != null) {
-			for ( Token t : ids ) {
-				String id = t.getText();
-				Symbol sy = new Symbol(id, Symbol.Kind.Variable, typ, currentScope, processLineNumber(ctx));
-				currentScope.define(sy);
+			if (ids != null) {
+				for ( Token t : ids ) {
+					String id = t.getText();
+					Symbol sy = new Symbol(id, Symbol.Kind.Variable, typ, currentScope, processLineNumber(ctx));
+					currentScope.define(sy);
+				}
+			}
+		} else {
+			List<GooParser.ExpressionContext> exl = ctx.varSpecRem().expressionList().exl;
+			if (ids != null) {
+				for ( Token t : ids ) {
+					for (GooParser.ExpressionContext e : exl) {
+						String id = t.getText();
+						if (e.unaryExpr().unaryOp() != null) {
+							typ = visit(e.unaryExpr().unaryExpr().primaryExpr().operand().literal().compositeLit().literalType().typeName());
+						} else if (e.unaryExpr().primaryExpr().operand().literal().compositeLit().literalType().sliceType() != null) {
+							typ = visit(e.unaryExpr().primaryExpr().operand().literal().compositeLit().literalType().sliceType().elementType().type());
+						} else {
+							typ = visit(e.unaryExpr().primaryExpr().operand().literal().compositeLit().literalType().typeName());
+						}
+						Symbol sy = new Symbol(id, Symbol.Kind.Variable, typ, currentScope, processLineNumber(ctx));
+						currentScope.define(sy);
+					}
+				}
 			}
 		}
 		return typ;
-
 	}
+
 
 	@Override
 	public Type visitConstSpec(GooParser.ConstSpecContext ctx) {
 		List<Token> ids = ctx.identifierList().idl;
-		Type typ = visit(ctx.constSpecRem().type()); // For now, assuming only one type
+		Type typ = null;
+		if (ctx.constSpecRem().type() == null) {
+			typ = Type.unknownType;
+		} else {
+			typ = visit(ctx.constSpecRem().type()); // For now, assuming only one type
+		}
 
 		if (ids != null) {
 			for ( Token t : ids ) {
@@ -203,8 +229,8 @@ public class SymTabVisitor1 extends GooBaseVisitor<Type> {
 				currentScope.define(sy);
 			}
 		}
-		return typ;
 
+		return typ;
 	}
 
 }
