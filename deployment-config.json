@@ -1,9 +1,0 @@
-{
-    "type": "sftp",
-    "host": "b147.seng.uvic.ca",
-    "username": "rgelera",
-    "password": "f2yglh",
-    "port": 22,
-    "remotePath": "/home/rgelera/CSC435/a2",
-    "uploadOnSave": true
-}
